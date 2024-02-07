@@ -1,11 +1,13 @@
 import { Dimensions, Image, KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useRef } from 'react'
+import React, { FC, ReactElement, useEffect, useRef } from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Octicons from 'react-native-vector-icons/Octicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Header from '../components/Header'
 import { StatusBar } from 'expo-status-bar'
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -241,8 +243,11 @@ var dummyMessage = [
 
 const dummyImage = "https://img.freepik.com/free-photo/smiling-businessman-face-portrait-wearing-suit_53876-148138.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707177600&semt=ais"
 
+type Props = {
+    navigation: NavigationProp<ParamListBase>;
+  };
 
-const Chat = ({navigation}) => {
+const Chat:FC<Props> = ({navigation}):ReactElement => {
     const scrollViewRef = useRef(null);
     const [Messages, setMessages] = React.useState([
         {

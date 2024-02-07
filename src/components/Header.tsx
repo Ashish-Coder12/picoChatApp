@@ -1,10 +1,21 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { FC, ReactElement } from 'react'
 
 
 const dummyImage = "https://img.freepik.com/free-photo/smiling-businessman-face-portrait-wearing-suit_53876-148138.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707177600&semt=ais"
 
-const Header = ({imageurl,lastMessage,username,colors,time,type}) => {
+
+interface HeaderProps {
+    imageurl: string
+    lastMessage: string
+    username: string
+    colors: string
+    time: string
+    type: string
+}
+
+
+const Header:FC<HeaderProps> = ({imageurl,lastMessage,username,colors,time,type}):ReactElement => {
   return (
     <View style={styles.Header}>
         <View style={{flexDirection:'row',alignItems:'center'}}>
