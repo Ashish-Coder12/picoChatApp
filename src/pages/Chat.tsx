@@ -288,13 +288,11 @@ const Chat:FC<Props> = ({navigation}):ReactElement => {
 
             {/* Chat Area  */}
             <ScrollView  ref={scrollViewRef} style={styles.ChatArea} >
-                {
-                    Messages.map((item,index) => (
+                {Messages.map((item,index) => (
                         <View key={index} style={item.sender == "Me" ? styles.MeArea : styles.OtherArea}>
                             <Text style={item.sender == "Me" ?  {color:"#7469E9"} : {color:'white'}}>{item.message}</Text>
                         </View>
-                    ))
-                }
+                ))}
             </ScrollView>
 
 
