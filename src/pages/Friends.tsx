@@ -1,15 +1,20 @@
 import { Dimensions, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { FC, ReactElement, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import Header from '../components/Header';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const dummyImage = "https://img.freepik.com/free-photo/smiling-businessman-face-portrait-wearing-suit_53876-148138.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707177600&semt=ais"
 
-const Friends = ({navigation}) => {
-    const [selected,setSelected] = React.useState("Chats")
+type Props = {
+    navigation: NavigationProp<ParamListBase>;
+  };
+
+const Friends:FC<Props> = ({navigation}):ReactElement => {
+    const [selected,setSelected] = useState("Chats")
   return (
     <SafeAreaView style={{flex:1,backgroundColor:'white'}} >
         <ScrollView >
