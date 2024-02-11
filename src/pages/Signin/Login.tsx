@@ -7,14 +7,15 @@ const Login = ():ReactElement => {
     const [selected,setSelected] = useState("SignIn")
 
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={styles.flex}>
+            <Text style={{fontWeight:'bold',fontSize:25,marginLeft:30,marginVertical:10,fontFamily:'Pacifico'}}>Pico</Text>
       <View style={styles.slider}>
         <TouchableOpacity onPress={() => setSelected("SignIn")} style={selected == "SignIn" ? [styles.TouchableArea,styles.selected]:styles.TouchableArea}><Text style={selected == "SignIn" ? {color:'white',fontWeight:'bold',fontSize:15}:{color:'#584CD7',fontWeight:'bold',fontSize:15}}>Sign In</Text></TouchableOpacity>
         <TouchableOpacity onPress={() => setSelected("SignUp")} style={selected == "SignUp" ? [styles.TouchableArea,styles.selected]:styles.TouchableArea}><Text style={selected == "SignUp" ? {color:'white',fontWeight:'bold',fontSize:15}:{color:'#584CD7',fontWeight:'bold',fontSize:15}}>Sign Up</Text ></TouchableOpacity>
       </View>
       {selected == "SignIn" ? 
-      <View>
-        <View style={{height:windowHeight*0.7}}>
+      <View style={styles.flex}>
+        <View style={styles.flex}>
             <Text style={styles.Header}>Sign In</Text>
             <Text style={styles.label}>Username</Text>
             <TextInput placeholder='Enter your username' style={styles.inputbox} />
@@ -26,8 +27,8 @@ const Login = ():ReactElement => {
         </TouchableOpacity>
       </View>
       :
-      <View>
-        <View style={{height:windowHeight*0.7}}>
+      <View style={styles.flex}>
+        <View style={styles.flex}>
             <Text style={styles.Header}>Sign Up</Text>
             <Text style={styles.label}>Username</Text>
             <TextInput placeholder='Enter your username' style={styles.inputbox} />
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
         height:50,
         marginHorizontal:30,
         borderRadius:25,
-        marginVertical:20
+        marginBottom:20
     },
     TouchableArea:{
         flex:1,
@@ -96,5 +97,8 @@ const styles = StyleSheet.create({
     },
     selected:{
         backgroundColor:'#584CD7'
+    },
+    flex:{
+        flex:1
     }
 })

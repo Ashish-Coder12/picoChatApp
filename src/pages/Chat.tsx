@@ -274,8 +274,8 @@ const Chat:FC<Props> = ({navigation}):ReactElement => {
         setMessages(newarray)
     },[]);
   return (
-    <KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS =="ios" ? "padding" : "height"}>
         <SafeAreaView style={styles.BgColor}>
+            <KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS =="ios" ? "padding" : "height"}>
 
             {/* Header Area  */}
             <View style={[styles.headerArea,styles.borderBottom]}>
@@ -305,9 +305,10 @@ const Chat:FC<Props> = ({navigation}):ReactElement => {
                 </View>
                 <TouchableOpacity onPress={() => sendMessage()} style={styles.sendButton}><Octicons name={"paper-airplane"} size={20} color="#584CD7" /></TouchableOpacity>
             </View>
+             </KeyboardAvoidingView>
+             <StatusBar style="light" />
+
         </SafeAreaView>
-        <StatusBar style="light" />
-    </KeyboardAvoidingView>
   )
 }
 
